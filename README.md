@@ -21,20 +21,11 @@ Installation
 Configuration
 =============
 
+In your Rails app, throw in an initializer with the following contents:
+
+MyApp::Application.config.session_store :redis_session_store, :db => 2, :key_prefix => "myapp:session", :expire_after => 120.minutes
+
 See lib/redis-session-store.rb for a list of valid options.
-Set them using:
-
-    ActionDispatch::Base.session = {
-      :db => 2,
-      :expire_after => 120.minutes,
-      :key_prefix => "myapp:session:"
-    }
-    
-
-In your Rails app, throw in an initializer with the following contents
-and the configuration above:
-
-    ActionDispatch::Base.session_store = RedisSessionStore
 
 Changes
 =======
