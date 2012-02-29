@@ -24,7 +24,7 @@ Configuration
 See lib/redis-session-store.rb for a list of valid options.
 Set them using:
 
-    ActionController::Base.session = {
+    ActionDispatch::Base.session = {
       :db => 2,
       :expire_after => 120.minutes,
       :key_prefix => "myapp:session:"
@@ -34,9 +34,9 @@ Set them using:
 In your Rails app, throw in an initializer with the following contents
 and the configuration above:
 
-    ActionController::Base.session_store = RedisSessionStore
+    ActionDispatch::Base.session_store = RedisSessionStore
 
 Changes
 =======
 
-* Use setex for a single command instead of sending two commands. (Thanks dplummer)
+* Rails 3.2 changes.
